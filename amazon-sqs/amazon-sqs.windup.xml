@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ruleset id="amazon-sqs-example" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <targetTechnology id="amazon-sqs" />
+    </metadata>
+    <rules>
+        <rule id="amazon-sqs-1">
+            <when>
+                <javaclass references="com.amazonaws.services.sqs.{any}" />
+            </when>
+            <perform>              
+                <iteration>
+                    <hint message="amazon sqs reference" effort="0" severity="optional" />
+                </iteration>
+            </perform>
+            <where param="any">
+                <matches pattern=".*"/>
+            </where>
+        </rule>
+    </rules>
+</ruleset>
